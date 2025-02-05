@@ -3,8 +3,23 @@
     <mat-card-title>Track Time</mat-card-title>
     <mat-card-subtitle>New entry</mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content>Simple card</mat-card-content>
-  <mat-card-actions>
+  <mat-card-content>
+    <form class="form">
+      <div class="form-row">
+        <mat-form-field>
+          <mat-label>Ticket</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+      <div class="form-row">
+        <mat-form-field>
+          <mat-label>Work description</mat-label>
+          <input matInput>
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="end">
     <button mat-stroked-button>Add</button>
   </mat-card-actions>
 </mat-card>
