@@ -3,7 +3,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { DataService } from '../data.service';
+import { DataService } from '../../data.service';
 import {
   FormBuilder,
   FormControl,
@@ -12,7 +12,7 @@ import {
   ReactiveFormsModule,
   Validators
 } from '@angular/forms';
-import { TimeTrack } from '../data';
+import { TimeTrack } from '../../data';
 import { tap } from 'rxjs';
 
 interface TimeTrackAddForm {
@@ -21,7 +21,7 @@ interface TimeTrackAddForm {
 }
 
 @Component({
-  selector: 'app-time-dialog',
+  selector: 'yttt-time-dialog',
   imports: [
     MatCardModule,
     MatButtonModule,
@@ -40,7 +40,7 @@ export class TimeDialogComponent {
     private readonly dataService: DataService,
     private readonly formBuilder: FormBuilder
   ) {
-    this.form = formBuilder.group({
+    this.form = this.formBuilder.group({
       ticket: new FormControl('', {
         nonNullable: true,
         validators: [

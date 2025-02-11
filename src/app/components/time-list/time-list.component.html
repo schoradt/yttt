@@ -1,0 +1,33 @@
+<div class="time-list">
+  <mat-card appearance="outlined">
+    <mat-card-header>
+      <mat-card-title>Track Time</mat-card-title>
+      <mat-card-subtitle>New entry</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <table mat-table [dataSource]="timeList" class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="start">
+          <th mat-header-cell *matHeaderCellDef> Start </th>
+          <td mat-cell *matCellDef="let element"> {{element.startTime}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="end">
+          <th mat-header-cell *matHeaderCellDef> End </th>
+          <td mat-cell *matCellDef="let element"> {{element.endTime}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="ticket">
+          <th mat-header-cell *matHeaderCellDef> Ticket </th>
+          <td mat-cell *matCellDef="let element"> {{element.ticket}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

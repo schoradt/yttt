@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import {TimeDialogComponent} from './time-dialog/time-dialog.component';
+import { TimeTrackPageComponent } from './pages/time-track-page/time-track-page.component';
 
 export const routes: Routes = [
-  { path: 'time/add', component: TimeDialogComponent },
-  { path: '',   redirectTo: '/time/add', pathMatch: 'full' }
+  { path: 'track-time', component: TimeTrackPageComponent },
+  { path: '', redirectTo: '/track-time', pathMatch: 'full' }
 ];

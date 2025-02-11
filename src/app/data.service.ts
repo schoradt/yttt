@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { LocalStorageService } from './local-storage.service';
 import { Data, emptyData, TimeTrack } from './data';
 import { Observable, of } from 'rxjs';
+import moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,14 @@ export class DataService {
     this.store();
 
     return of(ticket as TimeTrack);
+  }
+
+  getTimeTracksSameDay(date: Date): Observable<TimeTrack[]> {
+    return of(
+      this.dataCache.timeTracks.filter((track) =>
+        moment(track.startTime).isSame(moment(date), 'day')
+      )
+    );
   }
 
   private store() {
