@@ -4,23 +4,26 @@
     <mat-card-subtitle>New entry</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <form class="form">
+    <form class="form" [formGroup]="form">
       <div class="form-row">
-        <mat-form-field>
+        <mat-form-field >
           <mat-label>Ticket</mat-label>
-          <input matInput>
+          <input matInput formControlName="ticket">
         </mat-form-field>
       </div>
       <div class="form-row">
         <mat-form-field>
           <mat-label>Work description</mat-label>
-          <input matInput>
+          <input matInput formControlName="description">
         </mat-form-field>
       </div>
     </form>
   </mat-card-content>
   <mat-card-actions align="end">
-    <button mat-stroked-button>Add</button>
+    <button
+      mat-stroked-button
+      (click)="submit()"
+    >Add</button>
   </mat-card-actions>
 </mat-card>
 
