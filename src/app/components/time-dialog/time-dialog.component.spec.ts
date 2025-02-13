@@ -9,7 +9,7 @@ describe('TimeDialogComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NoopAnimationsModule, TimeDialogComponent]
+      imports: [TimeDialogComponent, NoopAnimationsModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(TimeDialogComponent);
@@ -20,4 +20,8 @@ describe('TimeDialogComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // it('should be rendered right', () => {
+  //   expect(fixture).toMatchSnapshot();
+  // });
 });
