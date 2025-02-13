@@ -21,8 +21,6 @@ export class DataService {
       this.dataCache = emptyData();
     }
 
-    console.log(this.dataCache);
-
     this.cleanupData();
   }
 

@@ -21,7 +21,7 @@ describe('TimeDialogComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // it('should be rendered right', () => {
-  //   expect(fixture).toMatchSnapshot();
-  // });
+  it('should be rendered right', () => {
+    expect(fixture).toMatchSnapshot();
+  });
 });
