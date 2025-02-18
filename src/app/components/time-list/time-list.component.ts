@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
-import { TimeTrack } from '../../data';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
+import { TimeTrack } from '../../model/time-track';
 
 @Component({
   selector: 'yttt-time-list',

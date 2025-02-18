@@ -20,4 +20,23 @@ describe('TimeListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should be rendered empty', () => {
+    component.timeList = [];
+    fixture.detectChanges();
+
+    expect(fixture).toMatchSnapshot();
+  });
+
+  it('should be rendered with one element', () => {
+    component.timeList = [
+      {
+        ticket: 'T1',
+        startTime: new Date('2025-01-12T10:00:00Z')
+      }
+    ];
+    fixture.detectChanges();
+
+    expect(fixture).toMatchSnapshot();
+  });
 });

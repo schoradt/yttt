@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { LocalStorageService } from './local-storage.service';
-import { Data, emptyData, TimeTrack } from './data';
+import { LocalStorageService } from '../local-storage/local-storage.service';
+import { Data, emptyData } from '../../model/data';
 import { Observable, of } from 'rxjs';
 import moment from 'moment';
+import { TimeTrack } from '../../model/time-track';
 
 @Injectable({
   providedIn: 'root'
@@ -49,8 +50,13 @@ export class DataService {
     );
   }
 
+  count(): number {
+    return this.dataCache.timeTracks.length;
+  }
+
+  // private zone
+
   private store() {
-    console.log(this.dataCache);
     this.localStorageService.saveData(
       this.dataStorageKey,
       JSON.stringify(this.dataCache)

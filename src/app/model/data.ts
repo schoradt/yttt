@@ -1,10 +1,4 @@
-export interface TimeTrack {
-  id?: string;
-  startTime: Date;
-  endTime?: Date;
-  ticket: string;
-  description: string | null;
-}
+import { TimeTrack } from './time-track';
 
 export interface Data {
   timeTracks: TimeTrack[];

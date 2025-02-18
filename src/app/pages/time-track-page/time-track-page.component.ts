@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { TimeDialogComponent } from '../../components/time-dialog/time-dialog.component';
 import { TimeListComponent } from '../../components/time-list/time-list.component';
-import { DataService } from '../../data.service';
+import { DataService } from '../../services/data/data.service';
 import { Observable } from 'rxjs';
-import { TimeTrack } from '../../data';
 import { CommonModule } from '@angular/common';
+import { TimeTrack } from '../../model/time-track';
 
 @Component({
   selector: 'yttt-time-track-page',
