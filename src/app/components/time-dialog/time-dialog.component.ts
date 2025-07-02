@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,8 +12,8 @@ import {
   ReactiveFormsModule,
   Validators
 } from '@angular/forms';
-import { tap } from 'rxjs';
 import { TimeTrack } from '../../model/time-track';
+import { NgIf } from '@angular/common';
 
 interface TimeTrackAddForm {
   ticket: FormControl<string>;
@@ -28,12 +28,16 @@ interface TimeTrackAddForm {
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf
   ],
   templateUrl: './time-dialog.component.html',
   styleUrl: './time-dialog.component.scss'
 })
 export class TimeDialogComponent {
+  @Output()
+  newItemEvent = new EventEmitter<TimeTrack>();
+
   form: FormGroup<TimeTrackAddForm>;
 
   constructor(
@@ -64,10 +68,10 @@ export class TimeDialogComponent {
 
     console.log(ticket);
 
-    this.dataService.storeTimeTrack(ticket).pipe(
-      tap((track) => {
-        console.log(track);
-      })
-    );
+    this.dataService.storeTimeTrack(ticket).subscribe((track) => {
+      console.log(track);
+      this.newItemEvent.emit(track);
+      console.log('emitted newItemEvent');
+    });
   }
 }

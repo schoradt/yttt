@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, signal } from '@angular/core';
 import { TimeDialogComponent } from '../../components/time-dialog/time-dialog.component';
 import { TimeListComponent } from '../../components/time-list/time-list.component';
 import { DataService } from '../../services/data/data.service';
-import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { TimeTrack } from '../../model/time-track';
 
@@ -13,11 +12,24 @@ import { TimeTrack } from '../../model/time-track';
   styleUrl: './time-track-page.component.scss'
 })
 export class TimeTrackPageComponent implements OnInit {
-  today!: Observable<TimeTrack[]>;
+  today = signal<TimeTrack[]>([]);
 
   constructor(private readonly dataService: DataService) {}
 
   ngOnInit() {
-    this.today = this.dataService.getTimeTracksSameDay(new Date());
+    this.refresh();
+  }
+
+  refresh(): void {
+    console.log('refresh ...');
+    this.dataService.getTimeTracksSameDay(new Date()).subscribe((data) => {
+      this.today.set(data);
+      console.log(data);
+    });
+  }
+
+  newTrackAdded($event: TimeTrack) {
+    console.log('newTrackAdded', $event);
+    this.refresh();
   }
 }

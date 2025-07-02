@@ -1,4 +1,4 @@
 <div class="time-track-page">
-  <yttt-time-list *ngIf="today | async as list" [timeList]="list"></yttt-time-list>
-  <yttt-time-dialog></yttt-time-dialog>
+  <yttt-time-list [timeList]="today()"></yttt-time-list>
+  <yttt-time-dialog (newItemEvent)="newTrackAdded($event)"></yttt-time-dialog>
 </div>

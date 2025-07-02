@@ -5,6 +5,7 @@ exports[`TimeDialogComponent should be rendered right 1`] = `
   dataService={[Function DataService]}
   form={[Function FormGroup]}
   formBuilder={[Function _FormBuilder]}
+  newItemEvent={[Function EventEmitter_]}
 >
   <mat-card
     appearance="outlined"
@@ -160,8 +161,10 @@ exports[`TimeDialogComponent should be rendered right 1`] = `
       class="mat-mdc-card-actions mdc-card__actions mat-mdc-card-actions-align-end"
     >
       <button
-        class="mdc-button mdc-button--outlined mat-mdc-outlined-button _mat-animation-noopable mat-unthemed mat-mdc-button-base"
+        class="mdc-button mdc-button--outlined mat-mdc-outlined-button mat-mdc-button-disabled _mat-animation-noopable mat-unthemed mat-mdc-button-base"
+        disabled="true"
         mat-ripple-loader-class-name="mat-mdc-button-ripple"
+        mat-ripple-loader-disabled=""
         mat-ripple-loader-uninitialized=""
         mat-stroked-button=""
       >

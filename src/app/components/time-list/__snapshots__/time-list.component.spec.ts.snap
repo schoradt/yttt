@@ -170,7 +170,7 @@ exports[`TimeListComponent should be rendered with one element 1`] = `
                 mat-cell=""
                 role="cell"
               >
-                 Sun Jan 12 2025 10:00:00 GMT+0000 (Greenwich Mean Time) 
+                 2025-01-12 11:00:00 
               </td>
               <td
                 class="mat-mdc-cell mdc-data-table__cell cdk-cell cdk-column-end mat-column-end"

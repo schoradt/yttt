@@ -24,4 +24,31 @@ describe('TimeDialogComponent', () => {
   it('should be rendered right', () => {
     expect(fixture).toMatchSnapshot();
   });
+
+  it('validate ticket value - empty', () => {
+    //component.form.get('ticket')?.setValue('T');
+    fixture.detectChanges();
+
+    expect(component.form.get('ticket')?.errors?.['required']).toEqual(true);
+  });
+
+  it('validate ticket value - to short', () => {
+    component.form.get('ticket')?.setValue('T');
+    fixture.detectChanges();
+
+    expect(component.form.get('ticket')?.errors?.['minlength']).toEqual({
+      actualLength: 1,
+      requiredLength: 2
+    });
+  });
+
+  it('validate ticket value - to long', () => {
+    component.form.get('ticket')?.setValue('012345678901234567890');
+    fixture.detectChanges();
+
+    expect(component.form.get('ticket')?.errors?.['maxlength']).toEqual({
+      actualLength: 21,
+      requiredLength: 20
+    });
+  });
 });

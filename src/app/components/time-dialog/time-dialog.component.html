@@ -6,9 +6,12 @@
   <mat-card-content>
     <form class="form" [formGroup]="form">
       <div class="form-row">
-        <mat-form-field >
+        <mat-form-field>
           <mat-label>Ticket</mat-label>
           <input matInput formControlName="ticket">
+          <mat-error *ngIf="form.hasError('required', 'ticket')">Ticket must be set.</mat-error>
+          <mat-error *ngIf="form.hasError('minlength', 'ticket')">Ticket must have more then one character.</mat-error>
+          <mat-error *ngIf="form.hasError('maxlength', 'ticket')">Ticket must should not have more then 20 characters.</mat-error>
         </mat-form-field>
       </div>
       <div class="form-row">
@@ -22,6 +25,7 @@
   <mat-card-actions align="end">
     <button
       mat-stroked-button
+      [disabled]="form.invalid"
       (click)="submit()"
     >Add</button>
   </mat-card-actions>
